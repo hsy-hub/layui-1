@@ -3,7 +3,7 @@
         "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="mapper.UserMapper">
     <sql id="sql">
-        select * from user1
+        select * from user2
     </sql>
     <select id="login" parameterType="user" resultType="User">
         <include refid="sql"/> where name=#{loginName} and password=#{password}
@@ -14,7 +14,7 @@
     </select>
 
     <select id="userCount" resultType="integer">
-        select count(*) from user1
+        select count(*) from user2
     </select>
 
     <select id="getUserList2"  parameterType="hashmap" resultType="User">
@@ -22,6 +22,6 @@
     </select>
 
 <update id="updateUserList" parameterType="user">
-    update user1 set name=#{name},loginName=#{loginName},birthDate=#{birthDate},address=#{address} where id=#{id}
+    update user2 set name=#{name},loginName=#{loginName},birthDate=#{birthDate},address=#{address} where id=#{id}
 </update>
 </mapper>
