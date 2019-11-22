@@ -32,5 +32,10 @@ public class UserDaoImpl implements UserDao{
         return userMapper.getUserList2(map);
     }
 
+    @Override
+    public int updateUserList(User user) {
+        return userMapper.updateUserList(user);
+    }
+
 
 }

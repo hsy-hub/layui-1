@@ -10,4 +10,5 @@ public interface UserDao {
     List<User> getUserList();
     Integer userCount();
     List<User> getUserList2(HashMap map);
+    int updateUserList(User user);
 }

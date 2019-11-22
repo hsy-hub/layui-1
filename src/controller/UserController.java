@@ -25,6 +25,7 @@ public class UserController {
     @RequestMapping("/loginlayui.action")
     @ResponseBody
     public Map<String,String> loginlayui(@RequestBody User user){
+
         HttpSession session = request.getSession();
         User loginUser = userDao.login(user);
         Map<String, String> msg = new HashMap<>();
@@ -39,7 +40,6 @@ public class UserController {
     }
 
     @RequestMapping("/userListPage.action")
-    @ResponseBody
     public String userListPage(){
         return "userList";
     }
@@ -53,7 +53,7 @@ public class UserController {
     }
 
 
-    @RequestMapping("/UserList2.action")
+    @RequestMapping("/userList2.action")
     @ResponseBody
     public Map<String,Object> UserList2(int page,int limit){
         HashMap<String,Integer> map = new HashMap<>();
@@ -65,6 +65,12 @@ public class UserController {
         Map<String,Object> returnTable = Tool.testLayui(userList,page,limit);
         returnTable.put("count",pagecount);
         return returnTable;
+    }
+
+    @RequestMapping("/updateUserList.action")
+    @ResponseBody
+    public int updateUserList(User user){
+        return userDao.updateUserList(user);
     }
 
 }

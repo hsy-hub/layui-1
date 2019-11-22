@@ -17,9 +17,11 @@
         select count(*) from user1
     </select>
 
-    <select id="getUserList2"  parameterType="hashmap">
+    <select id="getUserList2"  parameterType="hashmap" resultType="User">
         <include refid="sql"/> limit #{pagestart},#{size}
     </select>
 
-
+<update id="updateUserList" parameterType="user">
+    update user1 set name=#{name},loginName=#{loginName},birthDate=#{birthDate},address=#{address} where id=#{id}
+</update>
 </mapper>
